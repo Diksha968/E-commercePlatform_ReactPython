@@ -1,0 +1,18 @@
+[
+    {
+        "model": "yourapp.Category",
+        "pk": 1,
+        "fields": {
+            "name": "Electronics",
+            "slug": "electronics"
+        }
+    },
+    {
+        "model": "yourapp.Category",
+        "pk": 2,
+        "fields": {
+            "name": "Clothing",
+            "slug": "clothing"
+        }
+    }
+]
