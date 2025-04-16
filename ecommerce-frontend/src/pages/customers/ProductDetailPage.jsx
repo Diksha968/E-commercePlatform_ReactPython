@@ -12,6 +12,9 @@ import pickle from "../../assets/SpicyPickle.png"
 import thalipithbhajni from "../../assets/thalipithbhajni.jpg"
 import herbalproduct from "../../assets/HerbalProduct.jpg"
 
+import { IoMdArrowRoundBack } from "react-icons/io";
+import { FaShoppingCart } from "react-icons/fa";
+
 const cakes = [
   { id: 1, name: "Chocolate Cake", price: 250, weight: "500g", flavor: "Chocolate", image: BakeryProduct },
   { id: 2, name: "Cookies", price: 150, weight: "500g", flavor: "Vanilla", image: BakeryProduct },
@@ -67,68 +70,77 @@ const ProductDetailPage = ({ addToCart, toggleFavorite, favorites = [] }) => {
 
   return (
     <>
-      <Helmet>
+      {/* <Helmet>
         <title>{product.name} - Gharguti Food</title>
         <meta name="description" content={`${product.name} - ${product.weight} available at Gharguti Food`} />
-      </Helmet>
+      </Helmet> */}
 
-      <div className="pt-24 max-w-4xl mx-auto text-center">
-        <button
-          onClick={() => navigate(-1)}
-          className="flex items-center gap-2 text-gray-700 hover:text-gray-900 transition font-medium mb-4"
-        >
-          ⬅ Back
-        </button>
+      <button
+        onClick={() => navigate(-1)}
+        className="px-4 py-2 bg-orange-600 text-white rounded-lg hover:bg-orange-400"
+      >
+        <IoMdArrowRoundBack />
+      </button>
 
-        <h2 className="text-4xl font-bold text-orange-600">{product.name}</h2>
-        <img
-          src={product.image || "/placeholder.svg"}
-          alt={product.name}
-          className="w-full max-w-md mx-auto h-auto object-cover rounded-md mt-4"
-        />
+      <div className="w-full mx-auto flex mt-4">
 
-        {product.flavor && <p className="text-xl text-gray-700 mt-2">Flavor: {product.flavor}</p>}
-        <p className="text-lg text-gray-700">Weight: {product.weight}</p>
-        <p className="text-3xl font-bold text-gray-900 mt-2">₹{product.price}</p>
-
-        <div className="flex items-center justify-center gap-4 mt-4">
-          <button
-            onClick={() => setQuantity(Math.max(1, quantity - 1))}
-            className="px-4 py-2 bg-gray-300 text-gray-900 rounded-lg hover:bg-gray-400"
-          >
-            ➖
-          </button>
-          <span className="text-2xl font-bold">{quantity}</span>
-          <button
-            onClick={() => setQuantity(quantity + 1)}
-            className="px-4 py-2 bg-gray-300 text-gray-900 rounded-lg hover:bg-gray-400"
-          >
-            ➕
-          </button>
+        {/* LEFT SECTION */}
+        <div className="left w-[50%] max-h-full">
+          <img
+            src={product.image || "/placeholder.svg"}
+            alt={product.name}
+            className="w-full h-full object-cover"
+          />
         </div>
 
-        <p className="text-2xl font-bold text-gray-900 mt-2">Total Price: ₹{totalPrice}</p>
+        {/* RIGHT SECTION */}
+        <div className="right w-[50%] max-h-full text-center">
+          <h2 className="text-4xl font-bold text-orange-600">{product.name}</h2>
 
-        <div className="flex flex-col sm:flex-row justify-center gap-4 mt-6">
-          <button
-            onClick={() => {
-              if (window.confirm(`Add ${quantity}x ${product.name} to cart?`)) {
-                addToCart({ ...product, quantity })
-                alert(`🛒 ${quantity}x ${product.name} added to cart!`)
-              }
-            }}
-            className="px-6 py-3 bg-orange-600 text-white rounded-lg hover:bg-orange-700"
-          >
-            Add to Cart 🛒
-          </button>
+          {product.flavor && <p className="text-xl font-semibold text-gray-700 mt-2">Flavor: {product.flavor}</p>}
+          <p className="text-lg font-semibold text-gray-700">Weight: {product.weight}</p>
+          <p className="text-3xl font-semibold text-gray-900 mt-2">₹{product.price}</p>
 
-          <button
-            onClick={() => toggleFavorite(product)}
-            className={`px-6 py-3 rounded-lg ${isFavorite ? "bg-red-500" : "bg-gray-400"} text-white hover:opacity-80`}
-          >
-            {isFavorite ? "❤️ Favorited" : "🤍 Add to Favorites"}
-          </button>
+          <div className="flex items-center justify-center gap-4 mt-4">
+            <button
+              onClick={() => setQuantity(Math.max(1, quantity - 1))}
+              className="px-4 py-2 bg-gray-300 text-gray-900 rounded-lg hover:bg-gray-400"
+            >
+              ➖
+            </button>
+            <span className="text-2xl font-semibold">{quantity}</span>
+            <button
+              onClick={() => setQuantity(quantity + 1)}
+              className="px-4 py-2 bg-gray-300 text-gray-900 rounded-lg hover:bg-gray-400"
+            >
+              ➕
+            </button>
+          </div>
+
+          <p className="text-2xl font-semibold text-gray-900 mt-2">Total Price: ₹{totalPrice}</p>
+
+          <div className="flex flex-col sm:flex-row justify-center gap-4 mt-6">
+            <button
+              onClick={() => {
+                addToCart({ ...product, quantity });
+                alert(`${product.name} added to cart!`);
+              }}
+              className="px-6 py-3 bg-gray-600 text-white rounded-lg hover:bg-gray-500 text-xl"
+            >
+              <FaShoppingCart />
+            </button>
+
+
+            <button
+              onClick={() => toggleFavorite(product)}
+              className={`px-6 py-3 rounded-lg text-xl ${isFavorite ? "bg-red-500" : "bg-gray-600"} text-white hover:opacity-80`}
+            >
+              {isFavorite ? "❤️" : "🤍"}
+            </button>
+          </div>
         </div>
+
+
       </div>
     </>
   )

@@ -41,12 +41,12 @@ const Home = () => {
   ]
 
   return (
-    <div className="pt-24 w-full text-center">
+    <div className="w-full text-center">
       <h1 className="text-4xl font-bold text-orange-600">Welcome to Gharguti Food</h1>
-      <p className="mt-4 text-lg">Taste the tradition with every bite!</p>
+      <p className="text-xl">Taste the tradition with every bite!</p>
 
       {/* Image Slider */}
-      <div className="w-full max-w-screen-lg mx-auto mt-6 relative">
+      <div className="w-full mx-auto mt-6 relative">
         <img
           src={images[currentImageIndex] || "/placeholder.svg"}
           alt={`Slide ${currentImageIndex + 1}`}
