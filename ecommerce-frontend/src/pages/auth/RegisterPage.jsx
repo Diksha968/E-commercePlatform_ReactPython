@@ -47,12 +47,12 @@ const RegisterPage = () => {
   
   return (
     <div className="max-w-md w-full mx-auto">
-      <div className="card">
+      <div className="card bg-gray-200">
         <div className="p-6 sm:p-8">
           <div className="text-center mb-8">
             <h1 className="text-2xl font-bold">Create an Account</h1>
-            <p className="text-gray-600 dark:text-gray-400 mt-2">
-              Join Grow-Well Marketplace today
+            <p className="text-gray-600 dark:text-gray-400">
+              Join OrangeCart today
             </p>
           </div>
           
@@ -183,7 +183,8 @@ const RegisterPage = () => {
           <div className="mt-6 text-center">
             <p className="text-sm text-gray-600 dark:text-gray-400">
               Already have an account?{' '}
-              <Link to="/auth/login" className="text-primary hover:text-primary-dark font-medium">
+              {/* <Link to="/auth/login" className="text-primary hover:text-primary-dark font-medium"> */}
+              <Link to="/ login" className="text-primary hover:text-primary-dark font-medium">
                 Sign in
               </Link>
             </p>

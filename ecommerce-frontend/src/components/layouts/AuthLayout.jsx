@@ -25,7 +25,7 @@ const AuthLayout = () => {
         }}
       >
         <Link to="/" style={{ textDecoration: "none", color: theme.colors.primary }}>
-          <h1 style={{ margin: 0 }}>Grow-Well Marketplace</h1>
+          <h1 style={{ margin: 0 }}>OrangeCart</h1>
         </Link>
 
         <button

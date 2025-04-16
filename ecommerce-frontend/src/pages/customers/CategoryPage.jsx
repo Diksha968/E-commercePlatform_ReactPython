@@ -10,6 +10,8 @@ import pickle from "../../assets/SpicyPickle.png"
 import thalipithbhajni from "../../assets/thalipithbhajni.jpg"
 import herbalproduct from "../../assets/HerbalProduct.jpg"
 
+import { IoMdArrowRoundBack } from "react-icons/io";
+
 const allProducts = {
   bakery: [
     { id: 1, name: "Chocolate Cake", price: "₹250", image: BakeryProduct, variants: ["1kg", "2kg", "3kg"] },
@@ -41,13 +43,14 @@ const CategoryPage = () => {
         <meta name="description" content={`Browse our ${categoryName} products at Gharguti Food`} />
       </Helmet>
 
-      <div className="pt-24 w-full max-w-3xl mx-auto text-center">
         <button
           onClick={() => navigate(-1)}
-          className="px-4 py-2 bg-gray-600 text-white rounded-lg hover:bg-gray-700 mb-4"
+          className="px-4 py-2 bg-orange-600 text-white rounded-lg hover:bg-orange-400 mb-4"
         >
-          Back
+          <IoMdArrowRoundBack />
         </button>
+
+      <div className="w-full max-w-3xl mx-auto text-center">
 
         <h1 className="text-4xl font-bold text-orange-600">{categoryName} PRODUCTS</h1>
 
