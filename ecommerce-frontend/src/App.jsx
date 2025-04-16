@@ -97,7 +97,7 @@ function App() {
                 <Route path="favorites" element={<FavoritesPage favorites={favorites} setFavorites={setFavorites} />} />
                 <Route path="more" element={<More />} />
                 <Route path="order-online" element={<OrderOnline />}/>
-                <Route path="upid" element={<UPIDPage />}  />
+                <Route path="/pay" element={<UPIDPage />}  />
 
                 {/* Protected Customer Routes */}
                 <Route element={<ProtectedRoute allowedRoles={["customer"]} />}>
