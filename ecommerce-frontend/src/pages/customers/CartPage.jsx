@@ -16,11 +16,17 @@ const CartPage = ({ cart = [], setCart }) => {
     setCart(cart.map((item) => (item.id === id ? { ...item, quantity: newQuantity } : item)))
   }
 
+  // const handleBuyNow = (item) => {
+  //   navigate(
+  //     `/checkout?name=${encodeURIComponent(item.name)}&price=${item.price * item.quantity}&quantity=${item.quantity}&image=${encodeURIComponent(item.image)}`,
+  //   )
+  // }
   const handleBuyNow = (item) => {
     navigate(
-      `/checkout?name=${encodeURIComponent(item.name)}&price=${item.price * item.quantity}&quantity=${item.quantity}&image=${encodeURIComponent(item.image)}`,
-    )
-  }
+      `/pay?name=${encodeURIComponent(item.name)}&price=${item.price * item.quantity}&quantity=${item.quantity}&image=${encodeURIComponent(item.image)}`
+    );
+  };
+
 
   // Calculate Grand Total
   const grandTotal = cart.reduce((total, item) => total + item.price * item.quantity, 0)
@@ -127,14 +133,23 @@ const CartPage = ({ cart = [], setCart }) => {
                 <p className="text-xl font-bold text-gray-900">
                   Grand Total: ₹{grandTotal}
                 </p>
-                <button
+                {/* <button
                   onClick={() =>
                     navigate(`/checkout?name=All%20Items&price=${grandTotal}&quantity=${cart.length}`)
                   }
                   className="mt-6 w-full px-6 py-3 bg-green-600 text-white rounded-lg hover:bg-green-700"
                 >
                   Checkout All Items
+                </button> */}
+                <button
+                  onClick={() =>
+                    navigate(`/pay?name=All%20Items&price=${grandTotal}&quantity=${cart.length}`)
+                  }
+                  className="mt-6 w-full px-6 py-3 bg-green-600 text-white rounded-lg hover:bg-green-700"
+                >
+                  Checkout All Items
                 </button>
+
               </div>
             </div>
           </div>
